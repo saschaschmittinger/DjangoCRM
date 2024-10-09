@@ -1,0 +1,16 @@
+{% extends "../base.html" %}
+
+{% block start %}
+
+{% for lead in leads %}
+
+<p>{{ lead.first_name }} </p>
+<p>{{ lead.last_name }} </p>
+<p>{{ lead.adress }}  </p>
+
+
+{% endfor %}
+
+{% endblock start %}
+
+
