@@ -1,21 +1,42 @@
 from django.shortcuts import render,redirect
+from django.core.mail import send_mail
 from .models import Lead, Agent
-from .forms import LeadForm
-from django.views.generic import ListView, DetailView
+from .forms import LeadModelForm
+from django.views import generic  
+
+
  
 
-
-class LeadListView(ListView):
+class LeadsListView(generic.ListView):
     template_name = 'leads/home.html'
     queryset = Lead.objects.all()
     context_object_name = 'leads'
 
 
 
-class LeadDetailView(DetailView):
+class LeadDetailView(generic.DetailView):
     template_name = 'leads/lead_detail.html'
     queryset = Lead.objects.all()
     context_object_name = 'lead'
+    
+
+
+class LeadsCreateView(generic.CreateView):
+    template_name = 'leads/lead_create.html'
+    form_class = LeadModelForm
+    
+    def get_success_url(self):
+       return '/leads'
+    
+    
+
+class LeadUpdateView(generic.UpdateView):
+    template_name = 'leads/lead_update.html'
+    form_class = LeadModelForm
+    queryset = Lead.objects.all()
+    
+    def get_success_url(self):
+        return '/leads'
 
 
 
@@ -26,53 +47,4 @@ def lead_delete(request, pk):
     return redirect("/leads")
 
 
-
-def lead_create(request):
-    form = LeadForm()
-    title = 'create leads'
-    if request.method == 'POST':
-        form = LeadForm(request.POST)
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']  
-            age = form.cleaned_data['age']   
-            agent = Agent.objects.first()
-            Lead.objects.create(
-                first_name=first_name,
-                last_name=last_name,
-                age=age,
-                agent=agent
-            )
-            return redirect("/leads") 
-    
-    context ={
-        'title':title,
-        'form':form
-    }
-    return render(request, 'leads/lead_create.html', context) 
-
-
-
-def lead_update(request, pk):
-    title = 'update lead'
-    lead = Lead.objects.get(id=pk)
-    form = LeadForm(request.POST)
-    if request.method == 'POST':
-        form = LeadForm(request.POST)
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']  
-            age = form.cleaned_data['age']       
-            lead.first_name = first_name
-            lead.last_name = last_name
-            lead.age = age
-            lead.save()
-            
-            return redirect("/leads") 
-    context = {
-        'lead':lead,
-        'title':title,
-        'form':form
-    }
-    return render(request, 'leads/lead_update.html',context)
 

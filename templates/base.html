@@ -1,10 +1,11 @@
 {% load compress %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de-DE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="description" content="SSC_Consult, CRM ">
 
     {% compress css %}
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
@@ -21,13 +22,11 @@
 
   <body>
 
-    {% include "leads/navbar.html" %}
-
+      {% include "leads/navbar.html" %}
     
       {% block start %}
       {% endblock start %}
-    
-  
- 
+     
+   
   </body>
 </html>
