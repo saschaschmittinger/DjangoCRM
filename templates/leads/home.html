@@ -1,16 +1,69 @@
 {% extends "../base.html" %}
+{% load static %}
 
 {% block start %}
 
-{% for lead in leads %}
 
-<p>{{ lead.first_name }} </p>
-<p>{{ lead.last_name }} </p>
-<p>{{ lead.adress }}  </p>
+<div
+class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+<table class="w-full text-left table-auto min-w-max">
+  <thead>
+    <tr>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+          Name
+        </p>
+      </th>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+          Age
+        </p>
+      </th>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+          Agent
+        </p>
+      </th>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
 
+    {% for lead in leads %}
 
-{% endfor %}
+    <tr>
+      <td class="p-4 border-b border-blue-gray-50">
+        <a href="{% url "leads:lead_detail" lead.pk %}" class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{ lead.first_name }} {{ lead.last_name }}
+        </a>
+      </td>
+      <td class="p-4 border-b border-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{ lead.age }}
+        </p>
+      </td>
+      <td class="p-4 border-b border-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{ lead.agent }}
+        </p>
+      </td>
+      <td class="p-4 border-b border-blue-gray-50">
+        <a href="{% url "leads:lead_update" lead.pk %}" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+          Edit
+        </a>
+        <a href="{% url "leads:lead_delete" lead.pk %}" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+            Delete
+          </a>
+      </td>
+      
+    </tr>
+ 
+    {% endfor %}
+
+  </tbody>
+</table>
+</div>
 
 {% endblock start %}
-
-
