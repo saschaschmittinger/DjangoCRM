@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'leads',
-    'compressor',
+ 
 ]
 
 MIDDLEWARE = [
@@ -121,11 +121,6 @@ STATIC_ROOT ='static_root'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'leads.User'
-
-COMPRESS_ROOT = BASE_DIR / 'static'
- 
-COMPRESS_ENABLED = True
- 
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
-
+LOGIN_REDIRECT_URL = '/leads'
+LOGOUT_REDIRECT_URL = '/leads'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

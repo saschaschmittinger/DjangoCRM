@@ -3,7 +3,6 @@
 
 {% block start %}
 
-
 <div
 class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
 <table class="w-full text-left table-auto min-w-max">
@@ -36,6 +35,7 @@ class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 b
     <tr>
       <td class="p-4 border-b border-blue-gray-50">
         <a href="{% url "leads:lead_detail" lead.pk %}" class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+
             {{ lead.first_name }} {{ lead.last_name }}
         </a>
       </td>
@@ -49,6 +49,9 @@ class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 b
             {{ lead.agent }}
         </p>
       </td>
+
+      {% if request.user.is_authenticated %}
+
       <td class="p-4 border-b border-blue-gray-50">
         <a href="{% url "leads:lead_update" lead.pk %}" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
           Edit
@@ -58,6 +61,7 @@ class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 b
           </a>
       </td>
       
+      {% endif %}
     </tr>
  
     {% endfor %}

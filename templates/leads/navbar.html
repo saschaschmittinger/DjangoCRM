@@ -7,23 +7,45 @@
       <div class="block">
         <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
          
+          {% if request.user.is_authenticated %}
+
           <li
             class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-   
    
             <a href="{% url "leads:lead_create" %}" class="flex items-center">
               Create Lead
             </a>
           </li>
+          <li
+          class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+
+         <form method="post" action="{% url 'logout' %}" >
+            {% csrf_token %}
+            <button type="submit">logout</button>
+         </form>
+        </li>
        
+
+          <small> Eingeloggt als: {{ request.user.username }}
+          </small>
+
+          {% else %} 
+
           <li
             class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-   
-   
-            <a href="#" class="flex items-center">
+            <a href="{% url "login" %}" class="flex items-center">
               Login
             </a>
           </li>
+          <li
+          class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+          <a href="#" class="flex items-center">
+            SignUp
+          </a>
+        </li>
+
+          {% endif %}
+
         </ul>
       </div>
      
