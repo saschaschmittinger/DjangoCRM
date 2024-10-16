@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    "crispy_tailwind",
     'leads',
  
 ]
@@ -119,8 +121,10 @@ STATIC_ROOT ='static_root'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 AUTH_USER_MODEL = 'leads.User'
 LOGIN_REDIRECT_URL = '/leads'
+LOGIN_URL = '/login'
 LOGOUT_REDIRECT_URL = '/leads'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

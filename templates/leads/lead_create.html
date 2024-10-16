@@ -1,21 +1,27 @@
 {% extends "../base.html" %}
 {% load static %}
+{% load tailwind_filters %}
 
 
 {% block start %}
 
 
-
  
-<div class="flex justify-center ">
-
-<form action="" method="post">
-  {% csrf_token %}
-   {{ form.as_p }}
-  <button type="submit">submit</button>
-</form>
-
+<div class="w-full h-full md:min-h-[768px] border-gray-900 ">
+  <div class="flex justify-center">
+      <form method='POST' class="bg-gray-200 border-gray-800  rounded-md mt-28 p-4 shadow-md ">
+        
+          <h2 class="pb-6 font-black text-center bg-teal-500 text-gray-100 rounded-md">  
+            <p class="p-3">Create Lead</p>
+          </h2>
+       
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="bg-teal-500 hover:bg-teal-300 transition duration-300 rounded-md py-1 px-3 text-white mt-2" type="submit"> <small>CREATE</small> </button>
+      </form>
+  </div>
 </div>
+
 
 
  
