@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7599ad82-46b0-419e-96af-c3225f17928c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dcrm/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dcrm/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leads/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/leads/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/material-tailwind.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/leads/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/leads/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/time.txt" beforeDir="false" afterPath="$PROJECT_DIR$/time.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dcrm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dcrm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2nFKPUsvSqIjQ79AMXosdXZEj1P" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,6 +29,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/saschaschmittinger/WebEntwicklung/Python/meinblog",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>

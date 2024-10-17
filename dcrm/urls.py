@@ -9,7 +9,8 @@ from leads.views import SignUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('leads/', include('leads.urls', namespace='leads')),
+    path('', include('leads.urls', namespace='leads')),
+    path('agents/', include('agents.urls', namespace='agents')),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('signup/', SignUpView.as_view(), name='signUp')

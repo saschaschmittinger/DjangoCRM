@@ -1,0 +1,25 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block start %}
+
+ 
+<div class="w-full h-full md:min-h-[768px] border-gray-900 ">
+    <div class="flex justify-center">
+        <form method='POST' class="bg-gray-200 border-gray-800  rounded-md mt-28 p-4 shadow-md ">
+          
+            <h2>  
+              <p class="p-3"><strong>are you sure?</strong> </p>
+            </h2>
+         
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="bg-red-500 hover:bg-red-300 transition duration-300 rounded-md py-1 px-3 text-white mt-2" type="submit"> <small>DELETE</small> </button>
+          <button class="bg-indigo-500 hover:bg-indigo-300 transition duration-300 rounded-md py-1 px-3 text-white mt-2" type="submit">  <a href="{% url "leads:lead_view" %}">ABRECHEN</a> </button>
+         
+        </form>
+    </div>
+  </div>
+  
+
+{% endblock start %}

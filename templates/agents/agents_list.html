@@ -1,0 +1,70 @@
+{% extends "../base.html" %}
+{% load static %}
+
+
+{% block start %}
+     
+
+<div
+class="mt-1 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+<table class="w-full text-left table-auto min-w-max">
+  <thead>
+    <tr>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50 ">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+          Username
+        </p>
+      </th>
+      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+         Organisation
+        </p>
+      </th>
+      <th class=" border-b border-blue-gray-100 bg-blue-gray-50" >
+        <div class="flex justify-end mr-3">
+            <p class=" block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+            <a href="{% url "agents:agent_create" %}" class="bg-teal-800 hover:bg-teal-600 transition duration-300 rounded-md py-1 px-3 text-white mt-2"> Create new Agent</a>
+            </p>
+       </div>
+      </th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for agent in agents %}
+
+    <tr>
+      <td class="p-4 border-b border-blue-gray-50">
+        <a href="{% url "agents:agent_detail" agent.pk %}" class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+
+            {{ agent.user.username }} 
+        </a>
+      </td>
+      <td class="p-4 border-b border-blue-gray-50">
+        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+            {{ agent.organisation}}
+        </p>
+      </td>
+      
+
+      <td class="p-4 border-b border-blue-gray-50">
+        <a href="{% url "agents:agent_update" agent.pk %}" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+          Edit
+        </a>
+        <a href="{% url "agents:agent_delete" agent.pk %}" class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+            Delete
+          </a>
+      </td>
+      
+  
+    </tr>
+ 
+    {% endfor %}
+
+  </tbody>
+</table>
+</div>
+
+
+{% endblock start %}

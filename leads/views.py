@@ -63,9 +63,9 @@ class SignUpView(generic.CreateView):
    
 
 
-
-def lead_delete(request, pk):
-    lead = Lead.objects.get(id=pk)
-    lead.delete()
-
-    return reverse('leads:lead_view')
+class LeadDeleteView(LoginRequiredMixin, generic.DeleteView):
+    template_name = 'leads/lead_delete.html'
+    queryset = Lead.objects.all()
+    
+    def get_success_url(self):
+        return reverse('leads:lead_view')

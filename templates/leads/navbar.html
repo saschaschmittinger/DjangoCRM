@@ -9,20 +9,37 @@
          
           {% if request.user.is_authenticated %}
 
+    
           <li
-            class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-   
-            <a href="{% url "leads:lead_create" %}" class="flex items-center">
-              Create Lead
-            </a>
-          </li>
+          class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+ 
+          <a href="/admin" class="flex items-center">
+            Admin
+          </a>
+        </li>
           <li
           class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
 
-         <form method="post" action="{% url 'logout' %}" >
-            {% csrf_token %}
-            <button type="submit">logout</button>
-         </form>
+          <a href="{% url "agents:agents_list" %}" class="flex items-center">
+            Agents
+          </a>
+        </li>
+        <li
+        class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+
+        <a href="{% url "leads:lead_view" %}" class="flex items-center">
+          Leads
+        </a>
+      </li>
+
+
+          <li
+            class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+
+          <form method="post" action="{% url 'logout' %}" >
+              {% csrf_token %}
+              <button type="submit">logout</button>
+          </form>
         </li>
        
 

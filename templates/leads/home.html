@@ -4,7 +4,7 @@
 {% block start %}
 
 <div
-class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+class="mt-1 relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
 <table class="w-full text-left table-auto min-w-max">
   <thead>
     <tr>
@@ -25,6 +25,14 @@ class="mt-2 relative flex flex-col w-full h-full overflow-scroll text-gray-700 b
       </th>
       <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
         <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70"></p>
+      </th>
+      <th class=" border-b border-blue-gray-100 bg-blue-gray-50" >
+        <div class="flex justify-end mr-3">
+            <p class=" block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+              <a href="{% url "leads:lead_create" %}" class="bg-teal-800 hover:bg-teal-600 transition duration-300 rounded-md py-1 px-3 text-white mt-2">
+                Create Lead
+              </a> 
+       </div>
       </th>
     </tr>
   </thead>
