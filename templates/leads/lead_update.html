@@ -7,19 +7,17 @@
 {% block start %}
  
 
-
- 
-<div class="w-full h-full md:min-h-[768px] border-gray-900 ">
+<div class="w-full h-full md:min-h-[768px] bg-gray-800 ">
   <div class="flex justify-center">
-      <form method='POST' class="bg-gray-200 border-gray-800  rounded-md mt-20 p-4 shadow-md ">
+      <form method='POST' class="bg-gray-200  rounded-md mt-28 p-4 shadow-md ">
         
-          <h2 class="pb-6 font-black text-center bg-teal-500 text-gray-100 rounded-md">  
+          <h2 class="pb-6 font-black text-center bg-gray-600 text-gray-100 rounded-md">  
             <p class="p-3">Update Lead</p>
           </h2>
        
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="bg-teal-500 hover:bg-teal-300 transition duration-300 rounded-md py-1 px-3 text-white mt-2" type="submit"> <small>UPDATE</small> </button>
+        {{ form|crispy }}
+        <button class="bg-gray-600 hover:bg-gray-400 transition duration-300 rounded-md py-1 px-3 text-white mt-2" type="submit"> <small>UPDATE</small> </button>
       </form>
   </div>
 </div>
